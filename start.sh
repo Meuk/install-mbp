@@ -15,14 +15,14 @@ killall Finder 2>/dev/null;
 
 # Installing XCode
 echo "\x1B[30m \x1B[102m INSTALLING XCODE\x1B[0m"
-#touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
-#PROD=$(softwareupdate -l |
-#  grep "\*.*Command Line" |
-#  head -n 1 | awk -F"*" '{print $2}' |
-#  sed -e 's/^ *//' |
-#  tr -d '\n')
-#softwareupdate -i "$PROD" -v;
-#wait
+touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
+PROD=$(softwareupdate -l |
+  grep "\*.*Command Line" |
+  head -n 1 | awk -F"*" '{print $2}' |
+  sed -e 's/^ *//' |
+  tr -d '\n')
+softwareupdate -i "$PROD" -v;
+wait
 echo "\x1B[30m \x1B[102m INSTALLING PIP\x1B[0m"
 sudo easy_install pip &
 wait
